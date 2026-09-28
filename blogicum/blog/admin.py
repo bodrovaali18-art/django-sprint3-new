@@ -3,8 +3,18 @@ from django.contrib import admin
 from .models import Category, Location, Post
 
 
-admin.site.register(Category)
-admin.site.register(Location)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+    ]
+
+
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = [
+        'name',
+    ]
 
 
 @admin.register(Post)
